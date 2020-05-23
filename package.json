@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/nobobobo/readme-generator#readme",
   "dependencies": {
-    "inquirer": "^7.1.0"
-  }
+    "inquirer": "^7.1.0",
+    "jest": "^26.0.1"
+  },
+  "devDependencies": {}
 }
