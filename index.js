@@ -54,6 +54,10 @@ inquirer
             type: "input",
             message: "GitHub user name: ",
             name: "githubId"
+        },{
+            type: "input",
+            message: "Email address: ",
+            name: "email"
         }
     ])
     .then(
@@ -92,22 +96,22 @@ inquirer
             addText("1. [ Description ](#desc)\n2. [ Installation ](#install)\n3. [ Usage ](#usage)\n4. [ License ](#license)\n5. [ Contributing ](#contribute)\n6. [ Tests ](#test)\n7. [ Questions ](#question)\n\n");
 
             // append description
-            descText= `<a name="desc"></a>\n## 1. Description \n\n${response.desc}\n\n`;
+            descText= `<a name="desc"></a>\n# 1. Description \n\n${response.desc}\n\n`;
             addText(descText);
 
 
             // append installtion
-            installationText = `<a name="install"></a>\n## 2. Installation \n\n\`\`\`\n${response.install}\n\`\`\`\n\n`;
+            installationText = `<a name="install"></a>\n# 2. Installation \n\n\`\`\`\n${response.install}\n\`\`\`\n\n`;
             addText(installationText);
 
 
             // append Usage
-            usageText = `<a name="usage"></a>\n## 3. Usage \n\n\`\`\`\n${response.usage}\n\`\`\`\n\n`;
+            usageText = `<a name="usage"></a>\n# 3. Usage \n\n\`\`\`\n${response.usage}\n\`\`\`\n\n`;
             addText(usageText);
 
             // append License section
             year = new Date().getFullYear();
-            licenseText = `<a name="license"></a>\n## 4. License \n\n© ${year} ${response.author} All Rights Reserved.\n\n`;
+            licenseText = `<a name="license"></a>\n# 4. License \n\n© ${year} ${response.author} All Rights Reserved.\n\n`;
 
             if (hasLicense){
                 licenseText += `This project is ${response.license} licensed. \n\n`
@@ -119,13 +123,24 @@ inquirer
             // issues page url: https://github.com/nobobobo/readme-generator/issues
             issueUrl = `https://github.com/${response.githubId}/${response.title}/issues`;
 
-            contributeText = `<a name="contribute"></a>\n## 5. Contributing \n\nContributions, issues and feature requests are welcome!\n\nFeel free to check [issues page](${issueUrl}).`;
+            contributeText = `<a name="contribute"></a>\n# 5. Contributing \n\nContributions, issues and feature requests are welcome!\n\nFeel free to check [issues page](${issueUrl}).`;
             addText(contributeText);
 
 
             // append test section
-            testText = `<a name="test"></a>\n## 6. Tests \n\n\`\`\`\n${response.test}\n\`\`\`\n\n`;
+            testText = `<a name="test"></a>\n# 6. Tests \n\n\`\`\`\n${response.test}\n\`\`\`\n\n`;
             addText(testText);
+
+
+            // append question section
+            // img url: https://github.com/<userid>.png
+            imgUrl = `https://github.com/${response.githubId}.png?size=200`
+            questionText = `<a name="question"></a>\n# 7. Questions \n\nIf you have any question about this project, please feel free to contact ${response.author} via [Email](mailto:${response.email}).\n![Image of ${response.githubId}](${imgUrl})\n\n`;
+
+            addText(questionText);
+
+            // append footer
+            addText('_This README was generated with [readme-generator](https://github.com/nobobobo/readme-generator)_\n')
 
         })
 
