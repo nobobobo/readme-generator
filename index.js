@@ -38,6 +38,10 @@ inquirer
             message: "Usage command: ",
             name: "usage"
         }, {
+            type: "input",
+            message: "Test command: ",
+            name: "test"
+        },{
             type: "list",
             message: "License name: ",
             choices: ['MIT License', 'GNU General Public License (GPL)', 'Creative Commons Licenses', 'Other'],
@@ -58,7 +62,7 @@ inquirer
             createNewReadme();
 
             // append title
-            title = `# ${response.title}\n\n`;
+            title = `# Welcome to ${response.title}!\n\n`;
             addText(title);
 
             // append a badge for version
@@ -117,6 +121,12 @@ inquirer
 
             contributeText = `<a name="contribute"></a>\n## 5. Contributing \n\nContributions, issues and feature requests are welcome!\n\nFeel free to check [issues page](${issueUrl}).`;
             addText(contributeText);
+
+
+            // append test section
+            testText = `<a name="test"></a>\n## 6. Tests \n\n\`\`\`\n${response.test}\n\`\`\`\n\n`;
+            addText(testText);
+
         })
 
 

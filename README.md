@@ -1,6 +1,6 @@
-# readme-generator
+# Welcome to readme-generator!
 
-[![Generic badge](https://img.shields.io/badge/Version-0.0.5-GREEN.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Version-0.0.6-GREEN.svg)](https://shields.io/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 1. [ Description ](#desc)
 2. [ Installation ](#install)
@@ -13,7 +13,7 @@
 <a name="desc"></a>
 ## 1. Description 
 
-This command line program dynamically generates readme file based on the user's input.
+This command line program dynamically generates README file based on the user's inputs.
 
 <a name="install"></a>
 ## 2. Installation 
@@ -41,4 +41,10 @@ This project is MIT License licensed.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check [issues page](https://github.com/nobobobo/readme-generator/issues).
+Feel free to check [issues page](https://github.com/nobobobo/readme-generator/issues).<a name="test"></a>
+## 6. Tests 
+
+```
+npm run test
+```
+
