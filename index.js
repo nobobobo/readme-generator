@@ -31,6 +31,10 @@ inquirer
             name: "desc"
         }, {
             type: "input",
+            message: "Capture image path (use empty value to skip): ",
+            name: "capture"
+        },{
+            type: "input",
             message: "Install command: ",
             name: "install"
         }, {
@@ -99,6 +103,13 @@ inquirer
             descText= `<a name="desc"></a>\n# 1. Description \n\n${response.desc}\n\n`;
             addText(descText);
 
+            // append capture if exists.
+
+            if (response.capture != ""){
+                captureText = `![capture](${response.capture})\n\n`;
+                addText(captureText);
+            }
+
 
             // append installtion
             installationText = `<a name="install"></a>\n# 2. Installation \n\n\`\`\`\n${response.install}\n\`\`\`\n\n`;
@@ -134,13 +145,18 @@ inquirer
 
             // append question section
             // img url: https://github.com/<userid>.png
-            imgUrl = `https://github.com/${response.githubId}.png?size=200`
-            questionText = `<a name="question"></a>\n# 7. Questions \n\nIf you have any question about this project, please feel free to contact ${response.author} via [Email](mailto:${response.email}).\n![Image of ${response.githubId}](${imgUrl})\n\n`;
+            imgUrl = `https://github.com/${response.githubId}.png?size=50`
+            questionText = `<a name="question"></a>\n# 7. Questions\n\n![Image of ${response.githubId}](${imgUrl})\n\nIf you have any question about this project, please feel free to contact **${response.author}** via [Email](mailto:${response.email}).\n\n`;
 
             addText(questionText);
 
             // append footer
-            addText('_This README was generated with [readme-generator](https://github.com/nobobobo/readme-generator)_\n')
+            addText('---\n\n_This README was generated with [readme-generator](https://github.com/nobobobo/readme-generator)_\n')
+
+
+            
+
+            console.log("README.md generated!")
 
         })
 
