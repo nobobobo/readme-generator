@@ -19,7 +19,7 @@ inquirer
     .prompt([
         {
             type: "input",
-            message: "Project title: ",
+            message: "Project name: ",
             name: "title"
         }, {
             type: "input",
@@ -46,6 +46,10 @@ inquirer
             type: "input",
             message: "Author name: ",
             name: "author"
+        }, {
+            type: "input",
+            message: "GitHub user name: ",
+            name: "githubId"
         }
     ])
     .then(
@@ -84,29 +88,35 @@ inquirer
             addText("1. [ Description ](#desc)\n2. [ Installation ](#install)\n3. [ Usage ](#usage)\n4. [ License ](#license)\n5. [ Contributing ](#contribute)\n6. [ Tests ](#test)\n7. [ Questions ](#question)\n\n");
 
             // append description
-            descText= `<a name="desc"></a>\n ## 1. Description \n\n${response.desc}\n\n`;
+            descText= `<a name="desc"></a>\n## 1. Description \n\n${response.desc}\n\n`;
             addText(descText);
 
 
             // append installtion
-            installationText = `<a name="install"></a>\n ## 2. Installation \n\n\`\`\`\n${response.install}\n\`\`\`\n\n`;
+            installationText = `<a name="install"></a>\n## 2. Installation \n\n\`\`\`\n${response.install}\n\`\`\`\n\n`;
             addText(installationText);
 
 
             // append Usage
-            usageText = `<a name="usage"></a>\n ## 3. Usage \n\n\`\`\`\n${response.usage}\n\`\`\`\n\n`;
+            usageText = `<a name="usage"></a>\n## 3. Usage \n\n\`\`\`\n${response.usage}\n\`\`\`\n\n`;
             addText(usageText);
 
             // append License section
             year = new Date().getFullYear();
-            licenseText = `<a name="license"></a>\n ## 4. License \n\n© ${year} ${response.author} All Rights Reserved.\n\n`;
+            licenseText = `<a name="license"></a>\n## 4. License \n\n© ${year} ${response.author} All Rights Reserved.\n\n`;
 
             if (hasLicense){
                 licenseText += `This project is ${response.license} licensed. \n\n`
             }
 
-            addText(licenseText)
+            addText(licenseText);
 
+            // append contributing section
+            // issues page url: https://github.com/nobobobo/readme-generator/issues
+            issueUrl = `https://github.com/${response.githubId}/${response.title}/issues`;
+
+            contributeText = `<a name="contribute"></a>\n## 5. Contributing \n\nContributions, issues and feature requests are welcome!\n\nFeel free to check [issues page](${issueUrl}).`;
+            addText(contributeText);
         })
 
 
